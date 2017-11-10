@@ -52,13 +52,15 @@ public class MyBenchmark {
 
     @Benchmark
     public void testMethod() {
-        String testxml = "<root xmlns='http://example.org'><describe>Good Company</describe><company xmlns='http://example.org'><employee xmlns='http://example.org'><empleename >Jone</empleename><address xmlns='http://example.org' > <contry>China</contry><city>Beijing</city><area>Haidian</area><street>Zhongguancun</street><code>10098</code></address> </employee><employeecount>34353</employeecount></company><shareprice>8880000</shareprice><createdate>2017-11-08 15:34:23</createdate></root>";
+        String reader = "<root xmlns='http://example.org'><describe>Good Company</describe><company xmlns='http://example.org'><employee xmlns='http://example.org'><empleename >Jone</empleename><address xmlns='http://example.org' > <contry>China</contry><city>Beijing</city><area>Haidian</area><street>Zhongguancun</street><code>10098</code></address> </employee><employeecount>34353</employeecount></company><shareprice>8880000</shareprice><createdate>2017-11-08</createdate></root>";
+        
         Map<String, Object> properties = new HashMap<>();
+        properties.put(JAXBRIContext.BACKUP_WITH_PARENT_NAMESPACE, Boolean.TRUE);
         try {
-            JAXBContext c = JAXBContext.newInstance(new Class[] {Root.class});
+            JAXBContext c = JAXBContext.newInstance(new Class[] {Root.class, Company.class,Employee.class,Address.class},properties);
             for(int i =0; i <10000; i++) {
                 Root root = null;
-                root = (Root) c.createUnmarshaller().unmarshal(new StringReader(testxml));
+                root = (Root) c.createUnmarshaller().unmarshal(new StringReader(reader));
                 Company company = root.company;
                 Employee employee = company.employee;
                 Address address = employee.address;
@@ -87,27 +89,27 @@ public class MyBenchmark {
         java.math.BigDecimal shareprice;
         @XmlElement(name="createdate")
         java.util.Date createdate;
-
+        
     }
+    
 
-
-    @XmlType(namespace = "http://example.org")
+    @XmlRootElement(name = "company",namespace = "http://example.org")
     static class Company {
         @XmlElement(name="employee",namespace = "http://example.org")
         Employee employee;
         @XmlElement(name="employeecount")
         Integer employeecount;
     }
-
-    @XmlType(namespace = "http://example.org")
+    
+    @XmlRootElement(name = "employee",namespace = "http://example.org")
     static class Employee {
         @XmlElement(name="empleename")
         String empleename;
         @XmlElement(name="address",namespace = "http://example.org")
         Address address;
     }
-
-    @XmlType(namespace = "http://example.org")
+    
+    @XmlRootElement(name = "address",namespace = "http://example.org")
     static class Address {
         @XmlElement(name="contry")
         String contry;
@@ -120,6 +122,5 @@ public class MyBenchmark {
         @XmlElement(name="code")
         String code;
     }
-
 
 }
