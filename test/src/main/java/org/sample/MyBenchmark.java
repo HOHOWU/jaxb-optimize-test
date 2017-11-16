@@ -58,7 +58,7 @@ public class MyBenchmark {
         properties.put(JAXBRIContext.BACKUP_WITH_PARENT_NAMESPACE, Boolean.TRUE);
         try {
             JAXBContext c = JAXBContext.newInstance(new Class[] {Root.class, Company.class,Employee.class,Address.class},properties);
-            for(int i =0; i <10000; i++) {
+            for(int i =0; i <100; i++) {
                 Root root = null;
                 root = (Root) c.createUnmarshaller().unmarshal(new StringReader(reader));
                 Company company = root.company;
