@@ -17,20 +17,33 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import com.sun.xml.bind.api.JAXBRIContext;
 import java.util.concurrent.TimeUnit;
+import javax.xml.bind.Unmarshaller;
 
 @State(Scope.Thread)
-@OutputTimeUnit(TimeUnit.MILLISECONDS)
 public class MutiThreadTest {
+
+    private Unmarshaller unmarshaller;
+    private String reader = "<root xmlns='http://example.org'><describe>Good Company</describe><company xmlns='http://example.org'><employee xmlns='http://example.org'><empleename >Jone</empleename><address xmlns='http://example.org' > <contry>China</contry><city>Beijing</city><area>Haidian</area><street>Zhongguancun</street><code>10098</code></address> </employee><employeecount>34353</employeecount></company><shareprice>8880000</shareprice><createdate>2017-11-08</createdate></root>";
+
+    @Setup(Level.Trial)
+    public void setUp() {
+        Map<String, Object> properties = new HashMap<>();
+        properties.put(JAXBRIContext.BACKUP_WITH_PARENT_NAMESPACE, Boolean.TRUE);
+        try {
+            JAXBContext c = JAXBContext.newInstance(new Class[] {Root.class, Company.class,Employee.class,Address.class},properties);
+            unmarshaller = c.createUnmarshaller();
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
+    }
     
     @Benchmark
-    @BenchmarkMode(Mode.All)
+    @Measurement(iterations = 100)
+    @Warmup(iterations = 100)
     public void testMethod() {
-        String testxml = "<root xmlns='http://example.org'><describe>Good Company</describe><company xmlns='http://example.org'><employee xmlns='http://example.org'><empleename >Jone</empleename><address xmlns='http://example.org' > <contry>China</contry><city>Beijing</city><area>Haidian</area><street>Zhongguancun</street><code>10098</code></address> </employee><employeecount>34353</employeecount></company><shareprice>8880000</shareprice><createdate>2017-11-08 15:34:23</createdate></root>";
-        Map<String, Object> properties = new HashMap<>();
         try {
-            JAXBContext c = JAXBContext.newInstance(new Class[] {Root.class});
             Root root = null;
-            root = (Root) c.createUnmarshaller().unmarshal(new StringReader(testxml));
+            root = (Root) unmarshaller.unmarshal(new StringReader(reader));
             Company company = root.company;
             Employee employee = company.employee;
             Address address = employee.address;
@@ -42,8 +55,6 @@ public class MutiThreadTest {
     public static void main(String[] args) throws RunnerException {
         Options opt = new OptionsBuilder()
         .include(MutiThreadTest.class.getSimpleName())
-        .warmupIterations(5)
-        .measurementIterations(5)
         .threads(Runtime.getRuntime().availableProcessors()*2)
         .forks(1)
         .syncIterations(true)
