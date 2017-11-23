@@ -66,72 +66,141 @@ THE POSSIBILITY OF SUCH DAMAGE.
 
 
  <!--with optimized code-->
-        <dependency>
-            <groupId>jaxb-v2-master</groupId>
-            <artifactId>jaxb-impl</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/src/main/resources/with_optimize/jaxb-impl.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>jaxb-v2-master</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/src/main/resources/with_optimize/jaxb-api.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>jaxb-v2-master</groupId>
-            <artifactId>jaxb-jxc</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/src/main/resources/with_optimize/jaxb-jxc.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>jaxb-v2-master</groupId>
-            <artifactId>jaxb-xjc</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/src/main/resources/with_optimize/jaxb-xjc.jar</systemPath>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>jaxb-v2-master</groupId>-->
+<!--            <artifactId>jaxb-impl</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>${basedir}/src/main/resources/with_optimize/jaxb-impl.jar</systemPath>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>jaxb-v2-master</groupId>-->
+<!--            <artifactId>jaxb-api</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>${basedir}/src/main/resources/with_optimize/jaxb-api.jar</systemPath>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>jaxb-v2-master</groupId>-->
+<!--            <artifactId>jaxb-jxc</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>${basedir}/src/main/resources/with_optimize/jaxb-jxc.jar</systemPath>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>jaxb-v2-master</groupId>-->
+<!--            <artifactId>jaxb-xjc</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>${basedir}/src/main/resources/with_optimize/jaxb-xjc.jar</systemPath>-->
+<!--        </dependency>-->
+
+
+ <!--with optimized code jdk9-->
+<dependency>
+    <groupId>jaxb-v2-master</groupId>
+    <artifactId>jaxb-impl</artifactId>
+    <version>1.0</version>
+    <scope>system</scope>
+    <systemPath>${basedir}/src/main/resources/with_optimize_jdk9/jaxb-impl.jar</systemPath>
+</dependency>
+<dependency>
+    <groupId>jaxb-v2-master</groupId>
+    <artifactId>jaxb-api</artifactId>
+    <version>1.0</version>
+    <scope>system</scope>
+    <systemPath>${basedir}/src/main/resources/with_optimize_jdk9/jaxb-api.jar</systemPath>
+</dependency>
+<dependency>
+    <groupId>jaxb-v2-master</groupId>
+    <artifactId>jaxb-jxc</artifactId>
+    <version>1.0</version>
+    <scope>system</scope>
+    <systemPath>${basedir}/src/main/resources/with_optimize_jdk9/jaxb-jxc.jar</systemPath>
+</dependency>
+<dependency>
+    <groupId>jaxb-v2-master</groupId>
+    <artifactId>jaxb-xjc</artifactId>
+    <version>1.0</version>
+    <scope>system</scope>
+    <systemPath>${basedir}/src/main/resources/with_optimize_jdk9/jaxb-xjc.jar</systemPath>
+</dependency>
+
 
  <!--without optimized code-->
-        <!--<dependency>-->
-            <!--<groupId>jaxb-v2-master</groupId>-->
-            <!--<artifactId>jaxb-impl</artifactId>-->
-            <!--<version>1.0</version>-->
-            <!--<scope>system</scope>-->
-            <!--<systemPath>${basedir}/src/main/resources/without_optimize/jaxb-impl.jar</systemPath>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>jaxb-v2-master</groupId>-->
-            <!--<artifactId>jaxb-api</artifactId>-->
-            <!--<version>1.0</version>-->
-            <!--<scope>system</scope>-->
-            <!--<systemPath>${basedir}/src/main/resources/without_optimize/jaxb-api.jar</systemPath>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>jaxb-v2-master</groupId>-->
-            <!--<artifactId>jaxb-jxc</artifactId>-->
-            <!--<version>1.0</version>-->
-            <!--<scope>system</scope>-->
-            <!--<systemPath>${basedir}/src/main/resources/without_optimize/jaxb-jxc.jar</systemPath>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>jaxb-v2-master</groupId>-->
-            <!--<artifactId>jaxb-xjc</artifactId>-->
-            <!--<version>1.0</version>-->
-            <!--<scope>system</scope>-->
-            <!--<systemPath>${basedir}/src/main/resources/without_optimize/jaxb-xjc.jar</systemPath>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>jaxb-v2-master</groupId>-->
-            <!--<artifactId>jaxb-core</artifactId>-->
-            <!--<version>1.0</version>-->
-            <!--<scope>system</scope>-->
-            <!--<systemPath>${basedir}/src/main/resources/without_optimize/jaxb-core.jar</systemPath>-->
-        <!--</dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>jaxb-v2-master</groupId>-->
+<!--            <artifactId>jaxb-impl</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>${basedir}/src/main/resources/without_optimize/jaxb-impl.jar</systemPath>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>jaxb-v2-master</groupId>-->
+<!--            <artifactId>jaxb-api</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>${basedir}/src/main/resources/without_optimize/jaxb-api.jar</systemPath>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>jaxb-v2-master</groupId>-->
+<!--            <artifactId>jaxb-jxc</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>${basedir}/src/main/resources/without_optimize/jaxb-jxc.jar</systemPath>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>jaxb-v2-master</groupId>-->
+<!--            <artifactId>jaxb-xjc</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>${basedir}/src/main/resources/without_optimize/jaxb-xjc.jar</systemPath>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>jaxb-v2-master</groupId>-->
+<!--            <artifactId>jaxb-core</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>${basedir}/src/main/resources/without_optimize/jaxb-core.jar</systemPath>-->
+<!--        </dependency>-->
 
+
+ <!--without optimized code for jdk9 -->
+<!--<dependency>-->
+<!--    <groupId>jaxb-v2-master</groupId>-->
+<!--    <artifactId>jaxb-impl</artifactId>-->
+<!--    <version>1.0</version>-->
+<!--    <scope>system</scope>-->
+<!--    <systemPath>${basedir}/src/main/resources/without_optimize_jdk9/jaxb-impl.jar</systemPath>-->
+<!--</dependency>-->
+<!--<dependency>-->
+<!--    <groupId>jaxb-v2-master</groupId>-->
+<!--    <artifactId>jaxb-api</artifactId>-->
+<!--    <version>1.0</version>-->
+<!--    <scope>system</scope>-->
+<!--    <systemPath>${basedir}/src/main/resources/without_optimize_jdk9/jaxb-api.jar</systemPath>-->
+<!--</dependency>-->
+<!--<dependency>-->
+<!--    <groupId>jaxb-v2-master</groupId>-->
+<!--    <artifactId>jaxb-jxc</artifactId>-->
+<!--    <version>1.0</version>-->
+<!--    <scope>system</scope>-->
+<!--    <systemPath>${basedir}/src/main/resources/without_optimize_jdk9/jaxb-jxc.jar</systemPath>-->
+<!--</dependency>-->
+<!--<dependency>-->
+<!--    <groupId>jaxb-v2-master</groupId>-->
+<!--    <artifactId>jaxb-xjc</artifactId>-->
+<!--    <version>1.0</version>-->
+<!--    <scope>system</scope>-->
+<!--    <systemPath>${basedir}/src/main/resources/without_optimize_jdk9/jaxb-xjc.jar</systemPath>-->
+<!--</dependency>-->
+<!--<dependency>-->
+<!--    <groupId>jaxb-v2-master</groupId>-->
+<!--    <artifactId>jaxb-core</artifactId>-->
+<!--    <version>1.0</version>-->
+<!--    <scope>system</scope>-->
+<!--    <systemPath>${basedir}/src/main/resources/without_optimize_jdk9/jaxb-core.jar</systemPath>-->
+<!--</dependency>-->
 
     </dependencies>
 
